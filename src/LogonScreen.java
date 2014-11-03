@@ -110,8 +110,8 @@ public class LogonScreen extends JFrame {
 		contentPane.add(passwordField);
 		
 		JLabel iconLabel = new JLabel("");
-		Image img = new ImageIcon(this.getClass().getResource("/cbs_logo_horizontal.png")).getImage();
-		iconLabel.setIcon(new ImageIcon(img));
+		//Image img = new ImageIcon(this.getClass().getResource("/cbs_logo_horizontal.png")).getImage();
+		//iconLabel.setIcon(new ImageIcon(img));
 		iconLabel.setBounds(25, 71, 235, 210);
 		contentPane.add(iconLabel);
 		

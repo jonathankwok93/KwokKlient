@@ -152,8 +152,8 @@ public class createEvent extends JFrame {
 		
 		
 		JLabel lblCBSCalendarLogo = new JLabel("");
-		Image img = new ImageIcon(this.getClass().getResource("/cbs_calendar_logo.png")).getImage();
-		lblCBSCalendarLogo.setIcon(new ImageIcon(img));
+		//Image img = new ImageIcon(this.getClass().getResource("/cbs_calendar_logo.png")).getImage();
+		//lblCBSCalendarLogo.setIcon(new ImageIcon(img));
 		lblCBSCalendarLogo.setBounds(192, 17, 282, 66);
 		contentPane.add(lblCBSCalendarLogo);
 		
