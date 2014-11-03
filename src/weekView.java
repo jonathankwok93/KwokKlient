@@ -1,5 +1,6 @@
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.awt.Font;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -19,27 +20,11 @@ public class weekView extends JFrame {
 	private JPanel contentPane;
 
 	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					weekView frame = new weekView();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
 	 * Create the frame.
 	 */
 	public weekView() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 850, 550);
+		setBounds(100, 100, 850, 750);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -52,56 +37,97 @@ public class weekView extends JFrame {
 				dispose();
 			}
 		});
-		btnExit.setBounds(637, 491, 180, 29);
+		
+		int SatDay = Logic.getFirstDayOfWeek() + 7;
+		int SunDay = Logic.getFirstDayOfWeek() + 8;
+		int MonDay = Logic.getFirstDayOfWeek() + 2;
+		int TueDay = Logic.getFirstDayOfWeek() + 3;
+		int WedDay = Logic.getFirstDayOfWeek() + 4;
+		int ThuDay = Logic.getFirstDayOfWeek() + 5;
+		int FriDay = Logic.getFirstDayOfWeek() + 6;
+
+		
+		btnExit.setBounds(664, 693, 180, 29);
 		contentPane.add(btnExit);
 		
-		JLabel Monday = new JLabel("Monday");
+		JLabel Monday = new JLabel("Mon " + MonDay);
+		Monday.setFont(new Font("Lucida Grande", Font.BOLD, 13));
 		Monday.setBounds(119, 68, 95, 39);
 		contentPane.add(Monday);
 		
-		JLabel lblTuesday = new JLabel("Tuesday");
+		JLabel lblTuesday = new JLabel("Tue " + TueDay);
+		lblTuesday.setFont(new Font("Lucida Grande", Font.BOLD, 13));
 		lblTuesday.setBounds(226, 68, 95, 39);
 		contentPane.add(lblTuesday);
 		
-		JLabel lblWednesday = new JLabel("Wednesday");
+		JLabel lblWednesday = new JLabel("Wed " + WedDay);
+		lblWednesday.setFont(new Font("Lucida Grande", Font.BOLD, 13));
 		lblWednesday.setBounds(333, 68, 95, 39);
 		contentPane.add(lblWednesday);
 		
-		JLabel lblThursday = new JLabel("Thursday");
+		JLabel lblThursday = new JLabel("Thu " + TueDay);
+		lblThursday.setFont(new Font("Lucida Grande", Font.BOLD, 13));
 		lblThursday.setBounds(440, 68, 95, 39);
 		contentPane.add(lblThursday);
 		
-		JLabel lblFriday = new JLabel("Friday");
+		JLabel lblFriday = new JLabel("Fri " + FriDay);
+		lblFriday.setFont(new Font("Lucida Grande", Font.BOLD, 13));
 		lblFriday.setBounds(547, 68, 95, 39);
 		contentPane.add(lblFriday);
 		
-		JLabel lblSaturday = new JLabel("Saturday");
+		JLabel lblSaturday = new JLabel("Sat " + SatDay);
+		lblSaturday.setFont(new Font("Lucida Grande", Font.BOLD, 13));
 		lblSaturday.setBounds(642, 68, 95, 39);
 		contentPane.add(lblSaturday);
 		
-		JLabel lblFriday_1 = new JLabel("Sunday");
+		JLabel lblFriday_1 = new JLabel("Sun " + SunDay);
+		lblFriday_1.setFont(new Font("Lucida Grande", Font.BOLD, 13));
 		lblFriday_1.setBounds(749, 68, 95, 39);
 		contentPane.add(lblFriday_1);
 		
 		JLabel lblTime = new JLabel("Time");
-		lblTime.setBounds(10, 68, 60, 39);
+		lblTime.setFont(new Font("Lucida Grande", Font.BOLD, 13));
+		lblTime.setBounds(20, 68, 60, 39);
 		contentPane.add(lblTime);
 		
+	
 		
-		String[] columnNames = {"Time", "Monday"};
+		
+		String[] columnNames = {"Time", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"};
 		Object[][] data = {
-				{"08.00", "a"},
-				{"09.00", "b"},
-				{"10.00", "c"},
-				{"11.00", "d"},
-				{"12.00", "e"},
-				{"13.00", "f"},
-				{"14.00", "g"},
+			//	{"Time", "Mon " + MonDay, 
+			//		"Tue " + TueDay, "Wed " + WedDay, 
+			//		"Thu" + ThuDay, "Fri " + FriDay, "Sat " + SatDay, "Sun " + SunDay},
+				{"06.00", null, null, null, null, null, null, null},
+				{"07.00", null, null, null, null, null, null, null},
+				{"08.00", null, null, null, null, null, null, null},
+				{"09.00", null, null, null, null, null, null, null},
+				{"10.00", null, null, null, null, null, null, null},
+				{"11.00", null, null, null, null, null, null, null},
+				{"12.00", null, null, null, null, null, null, null},
+				{"13.00", null, null, null, null, null, null, null},
+				{"14.00", null, null, null, null, null, null, null},
+				{"15.00", null, null, null, null, null, null, null},
+				{"16.00", null, null, null, null, null, null, null},
+				{"17.00", null, null, null, null, null, null, null},
+				{"18.00", null, null, null, null, null, null, null},
+				{"19.00", null, null, null, null, null, null, null},
+				{"20.00", null, null, null, null, null, null, null},
+				{"21.00", null, null, null, null, null, null, null},
+				{"22.00", null, null, null, null, null, null, null},
+				{"23.00", null, null, null, null, null, null, null},
+				{"24.00", null, null, null, null, null, null, null},
 		};
 		
 		JTable table = new JTable(data, columnNames);
-		table.setBounds(20, 119, 100, 214);
+		table.setBounds(20, 105, 809, 576);
 		contentPane.add(table);
-//		JTable(Object[][] rowData, Object[] columnNames);
+		table.setRowHeight(30);
+		table.setShowGrid(true);
+		
+		JLabel lblItIsCurrently = new JLabel("It is currently week " + Logic.getweekofyear());
+		lblItIsCurrently.setBounds(20, 40, 215, 16);
+		contentPane.add(lblItIsCurrently);
+		//table.setFont(getFont().deriveFont(Font.BOLD));
 	}
 }

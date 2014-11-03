@@ -27,6 +27,9 @@ import java.util.GregorianCalendar;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import javax.swing.JPasswordField;
+import java.awt.event.InputMethodListener;
+import java.awt.event.InputMethodEvent;
+import java.awt.Font;
 
 public class Calendar extends JFrame {
   String[] years = {"2014","2015", "2016", "2017", "2018", "2019", "2020" };
@@ -42,34 +45,35 @@ public class Calendar extends JFrame {
   CalendarModel model = new CalendarModel();
 
   JTable table = new JTable(model);
-  
+  JTable agendaTable1= new JTable(model);
+
 
   public Calendar() {
     super();
-    
-    getContentPane().setLayout(null);
-    comboBox.setBounds(526, 210, 82, 30);
+    comboBox.setBounds(218, 5, 82, 30);
     comboBox.setSelectedIndex(0);
     comboBox.addItemListener(new ComboHandler());
-    table.setBounds(57, 81, 551, 117);
+    getContentPane().setLayout(null);
     getContentPane().add(comboBox);
+    table.setBounds(16, 75, 312, 117);
     table.setGridColor(Color.black);
     table.setShowGrid(true);
     getContentPane().add(table);
+    list.setBounds(542, 47, 152, 118);
     list.setLayoutOrientation(JList.HORIZONTAL_WRAP);
-    list.setBounds(57, 210, 135, 102);
     getContentPane().add(list);
     list.setSelectedIndex(3);
     
     JButton btnToday = new JButton("Today");
+    btnToday.setBounds(493, 6, 100, 29);
     btnToday.addActionListener(new ActionListener() {
     public void actionPerformed(ActionEvent arg0) {
     }
     });
-    btnToday.setBounds(475, 40, 100, 29);
     getContentPane().add(btnToday);
     
     JButton btnSignout = new JButton("Sign out");
+    btnSignout.setBounds(594, 729, 100, 29);
     btnSignout.addMouseListener(new MouseAdapter() {
     @Override
     public void mouseClicked(MouseEvent e) {
@@ -78,42 +82,38 @@ public class Calendar extends JFrame {
     dispose();
     }
     });
-    btnSignout.setBounds(402, 302, 100, 29);
     getContentPane().add(btnSignout);
     
     JButton btnExit = new JButton("Exit ");
+    btnExit.setBounds(502, 729, 91, 29);
     btnExit.addMouseListener(new MouseAdapter() {
     @Override
     public void mouseClicked(MouseEvent e) {
     System.exit(0);
     }
     });
-    btnExit.setBounds(517, 302, 91, 29);
     getContentPane().add(btnExit);
     
     JComboBox comboBox_1 = new JComboBox(months);
-    comboBox_1.setBounds(429, 212, 100, 27);
+    comboBox_1.setBounds(117, 7, 100, 27);
     getContentPane().add(comboBox_1);
     
-    JLabel lblNewLabel = new JLabel("It is currently week " + getDateInfo.getWeekNum()
+    JLabel lblNewLabel = new JLabel("It is currently week " + Logic.getweekofyear()
     + " of 52");
-    lblNewLabel.setHorizontalAlignment(SwingConstants.RIGHT);
-    lblNewLabel.setBounds(402, 24, 206, 16);
+    lblNewLabel.setBounds(16, 47, 206, 16);
+    lblNewLabel.setHorizontalAlignment(SwingConstants.LEFT);
     getContentPane().add(lblNewLabel);
     
-    JComboBox comboBox_2 = new JComboBox(viewMode);
-    comboBox_2.setBounds(194, 212, 135, 27);
-    getContentPane().add(comboBox_2);
-    
     JButton button = new JButton("<");
-    button.setBounds(434, 40, 46, 29);
+    button.setBounds(446, 6, 46, 29);
     getContentPane().add(button);
     
     JButton button_1 = new JButton(">");
-    button_1.setBounds(571, 40, 46, 29);
+    button_1.setBounds(594, 6, 46, 29);
     getContentPane().add(button_1);
     
     JButton btnCreateEvent = new JButton("Create Event");
+    btnCreateEvent.setBounds(6, 6, 108, 29);
     btnCreateEvent.addMouseListener(new MouseAdapter() {
     @Override
     public void mouseClicked(MouseEvent e) {
@@ -121,25 +121,60 @@ public class Calendar extends JFrame {
     create.setVisible(true);
     }
     });
-    btnCreateEvent.setBounds(324, 211, 108, 29);
     getContentPane().add(btnCreateEvent);
     
     JLabel lblQuoteOfThe = new JLabel("Quote of the day - You don't have to be great to start, but you have to start to be great");
-    lblQuoteOfThe.setBounds(66, 343, 551, 16);
+    lblQuoteOfThe.setBounds(59, 806, 551, 16);
     getContentPane().add(lblQuoteOfThe);
     
     JLabel lblNewLabel_1 = new JLabel("");
-    //Image img = new ImageIcon(this.getClass().getResource("/cbs_calendar_logo.png")).getImage();
-    //lblNewLabel_1.setIcon(new ImageIcon(img));
     lblNewLabel_1.setBounds(59, 24, 287, 45);
     getContentPane().add(lblNewLabel_1);
+    
+    JButton btnShowWeekView = new JButton("Show week view");
+    btnShowWeekView.addMouseListener(new MouseAdapter() {
+    	@Override
+    	public void mouseClicked(MouseEvent e) {
+    		weekView vW = new weekView();
+    		vW.setAlwaysOnTop(true);
+    		vW.setVisible(true);
+    	}
+    });
+    btnShowWeekView.setBounds(379, 729, 127, 29);
+    getContentPane().add(btnShowWeekView);
+    
+    table_1 = new JTable(data, columnNames);
+    table_1.setBounds(16, 236, 653, 481);
+    getContentPane().add(table_1);
+    table_1.setRowHeight(25);
+ 
+    JLabel lblActicity = new JLabel("Activity");
+    lblActicity.setFont(new Font("Lucida Grande", Font.BOLD, 13));
+    lblActicity.setBounds(117, 203, 200, 35);
+    getContentPane().add(lblActicity);
+    
+    JLabel lblTime = new JLabel("Time");
+    lblTime.setFont(new Font("Lucida Grande", Font.BOLD, 13));
+    lblTime.setBounds(16, 195, 200, 50);
+    getContentPane().add(lblTime);
+    
+    JLabel lblTodayIs = new JLabel(Logic.getmonthofyear() + " " + Logic.getdayofmonth() + " " + Logic.getYear());
+    lblTodayIs.setFont(new Font("Lucida Grande", Font.BOLD, 13));
+    lblTodayIs.setBounds(517, 208, 152, 16);
+    getContentPane().add(lblTodayIs);
+    
+    JLabel lblNewLabel_2 = new JLabel(Logic.getDay());
+    lblNewLabel_2.setFont(new Font("Lucida Grande", Font.BOLD, 13));
+    lblNewLabel_2.setBounds(424, 208, 82, 16);
+    getContentPane().add(lblNewLabel_2);
+    
  
     
     list.addListSelectionListener(new ListHandler());
     model.setMonth(comboBox.getSelectedIndex() + 1998, list.getSelectedIndex());
 
     this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-    setSize(700, 400);
+    setSize(700, 850);
     setVisible(true);
   }
 
@@ -156,6 +191,34 @@ public class Calendar extends JFrame {
       table.repaint();
     }
   }
+  
+  
+  String[] columnNames =  {"Time", "Activity"};
+  Object [][] data = {
+		  	{"06.00", null},
+			{"07.00", null},
+			{"08.00", null},
+			{"09.00", null},
+			{"10.00", null},
+			{"11.00", null},
+			{"12.00", null},
+			{"13.00", null},
+			{"14.00", null},
+			{"15.00", null},
+			{"16.00", null},
+			{"17.00", null},
+			{"18.00", null},
+			{"19.00", null},
+			{"20.00", null},
+			{"21.00", null},
+			{"22.00", null},
+			{"23.00", null},
+			{"24.00", null},
+
+
+			
+  };
+  private JTable table_1;
 }
 class CalendarModel extends AbstractTableModel {
   String[] days = { "Sat", "Sun", "Mon", "Tue", "Wed", "Thu", "Fri" };
