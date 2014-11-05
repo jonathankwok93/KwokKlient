@@ -55,17 +55,17 @@ public class Calendar extends JFrame {
     comboBox.addItemListener(new ComboHandler());
     getContentPane().setLayout(null);
     getContentPane().add(comboBox);
-    table.setBounds(16, 75, 312, 117);
+    table.setBounds(18, 97, 328, 112);
     table.setGridColor(Color.black);
     table.setShowGrid(true);
     getContentPane().add(table);
-    list.setBounds(542, 47, 152, 118);
+    list.setBounds(194, 221, 152, 102);
     list.setLayoutOrientation(JList.HORIZONTAL_WRAP);
     getContentPane().add(list);
     list.setSelectedIndex(3);
     
     JButton btnToday = new JButton("Today");
-    btnToday.setBounds(493, 6, 100, 29);
+    btnToday.setBounds(678, 63, 100, 29);
     btnToday.addActionListener(new ActionListener() {
     public void actionPerformed(ActionEvent arg0) {
     }
@@ -73,7 +73,7 @@ public class Calendar extends JFrame {
     getContentPane().add(btnToday);
     
     JButton btnSignout = new JButton("Sign out");
-    btnSignout.setBounds(594, 729, 100, 29);
+    btnSignout.setBounds(628, 763, 100, 29);
     btnSignout.addMouseListener(new MouseAdapter() {
     @Override
     public void mouseClicked(MouseEvent e) {
@@ -85,7 +85,7 @@ public class Calendar extends JFrame {
     getContentPane().add(btnSignout);
     
     JButton btnExit = new JButton("Exit ");
-    btnExit.setBounds(502, 729, 91, 29);
+    btnExit.setBounds(720, 763, 100, 29);
     btnExit.addMouseListener(new MouseAdapter() {
     @Override
     public void mouseClicked(MouseEvent e) {
@@ -98,18 +98,17 @@ public class Calendar extends JFrame {
     comboBox_1.setBounds(117, 7, 100, 27);
     getContentPane().add(comboBox_1);
     
-    JLabel lblNewLabel = new JLabel("It is currently week " + Logic.getweekofyear()
-    + " of 52");
-    lblNewLabel.setBounds(16, 47, 206, 16);
+    JLabel lblNewLabel = new JLabel("It is currently week 45 of 52");
+    lblNewLabel.setBounds(312, 11, 206, 16);
     lblNewLabel.setHorizontalAlignment(SwingConstants.LEFT);
     getContentPane().add(lblNewLabel);
     
     JButton button = new JButton("<");
-    button.setBounds(446, 6, 46, 29);
+    button.setBounds(638, 63, 46, 29);
     getContentPane().add(button);
     
     JButton button_1 = new JButton(">");
-    button_1.setBounds(594, 6, 46, 29);
+    button_1.setBounds(774, 63, 46, 29);
     getContentPane().add(button_1);
     
     JButton btnCreateEvent = new JButton("Create Event");
@@ -124,7 +123,7 @@ public class Calendar extends JFrame {
     getContentPane().add(btnCreateEvent);
     
     JLabel lblQuoteOfThe = new JLabel("Quote of the day - You don't have to be great to start, but you have to start to be great");
-    lblQuoteOfThe.setBounds(59, 806, 551, 16);
+    lblQuoteOfThe.setBounds(177, 804, 551, 16);
     getContentPane().add(lblQuoteOfThe);
     
     JLabel lblNewLabel_1 = new JLabel("");
@@ -140,33 +139,40 @@ public class Calendar extends JFrame {
     		vW.setVisible(true);
     	}
     });
-    btnShowWeekView.setBounds(379, 729, 127, 29);
+    btnShowWeekView.setBounds(508, 763, 127, 29);
     getContentPane().add(btnShowWeekView);
     
     table_1 = new JTable(data, columnNames);
-    table_1.setBounds(16, 236, 653, 481);
+    table_1.setBounds(358, 97, 462, 627);
     getContentPane().add(table_1);
-    table_1.setRowHeight(25);
+    table_1.setRowHeight(33);
  
     JLabel lblActicity = new JLabel("Activity");
     lblActicity.setFont(new Font("Lucida Grande", Font.BOLD, 13));
-    lblActicity.setBounds(117, 203, 200, 35);
+    lblActicity.setBounds(539, 59, 200, 35);
     getContentPane().add(lblActicity);
     
     JLabel lblTime = new JLabel("Time");
     lblTime.setFont(new Font("Lucida Grande", Font.BOLD, 13));
-    lblTime.setBounds(16, 195, 200, 50);
+    lblTime.setBounds(358, 50, 144, 53);
     getContentPane().add(lblTime);
     
-    JLabel lblTodayIs = new JLabel(Logic.getmonthofyear() + " " + Logic.getdayofmonth() + " " + Logic.getYear());
-    lblTodayIs.setFont(new Font("Lucida Grande", Font.BOLD, 13));
-    lblTodayIs.setBounds(517, 208, 152, 16);
+    JLabel lblTodayIs = new JLabel(Logic.getmonthofyear() + " " + Logic.getdayofmonth() + " - " + Logic.getYear());
+    lblTodayIs.setHorizontalAlignment(SwingConstants.TRAILING);
+    lblTodayIs.setFont(new Font("Lucida Grande", Font.PLAIN, 16));
+    lblTodayIs.setBounds(631, 10, 189, 16);
     getContentPane().add(lblTodayIs);
     
     JLabel lblNewLabel_2 = new JLabel(Logic.getDay());
-    lblNewLabel_2.setFont(new Font("Lucida Grande", Font.BOLD, 13));
-    lblNewLabel_2.setBounds(424, 208, 82, 16);
+    lblNewLabel_2.setHorizontalAlignment(SwingConstants.TRAILING);
+    lblNewLabel_2.setFont(new Font("Lucida Grande", Font.PLAIN, 14));
+    lblNewLabel_2.setBounds(738, 35, 82, 16);
     getContentPane().add(lblNewLabel_2);
+    
+    JLabel lblMonthOverview = new JLabel("Month overview");
+    lblMonthOverview.setFont(new Font("Lucida Grande", Font.BOLD, 13));
+    lblMonthOverview.setBounds(18, 68, 108, 16);
+    getContentPane().add(lblMonthOverview);
     
  
     
@@ -174,7 +180,7 @@ public class Calendar extends JFrame {
     model.setMonth(comboBox.getSelectedIndex() + 1998, list.getSelectedIndex());
 
     this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-    setSize(700, 850);
+    setSize(850, 900);
     setVisible(true);
   }
 
