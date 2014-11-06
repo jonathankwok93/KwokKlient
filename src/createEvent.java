@@ -57,6 +57,15 @@ public class createEvent extends JFrame {
 				"07:30","08:00","08:30","09:00","09:30",
 				"10:00","10:30","11:00","11:30", "12:00"};
 		String[] amPm = {"AM", "PM"};
+		
+		int nextYear = 1 +  Logic.getYear();
+		int nextnextYear = 2 + Logic.getYear();
+		int nextnextnextYear = 3 + Logic.getYear();
+		
+		String[] years = {Integer.toString(Logic.getYear()), Integer.toString(nextYear), Integer.toString(nextnextYear), Integer.toString(nextnextnextYear)};
+		
+		//String[] day = {"Day", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16",
+		//		"17", "18", "19", "20", "21", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"};
  		
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 480, 750
@@ -81,39 +90,39 @@ public class createEvent extends JFrame {
 		contentPane.add(btnCreateEvent);
 		
 		JLabel lblStart = new JLabel("Start");
-		lblStart.setBounds(36, 133, 61, 16);
+		lblStart.setBounds(36, 319, 61, 16);
 		contentPane.add(lblStart);
 		
 		JLabel lblDuration = new JLabel("Duration");
-		lblDuration.setBounds(36, 204, 61, 16);
+		lblDuration.setBounds(36, 390, 61, 16);
 		contentPane.add(lblDuration);
 		
 		JLabel lblRepeat = new JLabel("Repeat");
-		lblRepeat.setBounds(36, 243, 61, 16);
+		lblRepeat.setBounds(36, 429, 61, 16);
 		contentPane.add(lblRepeat);
 		
 		JComboBox comboBox = new JComboBox(hours);
-		comboBox.setBounds(109, 200, 102, 27);
+		comboBox.setBounds(109, 386, 102, 27);
 		contentPane.add(comboBox);
 		
 		JComboBox comboBox_1 = new JComboBox(minutes);
-		comboBox_1.setBounds(223, 200, 102, 27);
+		comboBox_1.setBounds(223, 386, 102, 27);
 		contentPane.add(comboBox_1);
 		
 		JCheckBox chckbxFullDayEvent = new JCheckBox("All day event");
-		chckbxFullDayEvent.setBounds(337, 200, 128, 23);
+		chckbxFullDayEvent.setBounds(337, 315, 128, 23);
 		contentPane.add(chckbxFullDayEvent);
 		
 		JComboBox comboBox_2 = new JComboBox(months);
-		comboBox_2.setBounds(223, 157, 102, 27);
+		comboBox_2.setBounds(223, 343, 102, 27);
 		contentPane.add(comboBox_2);
 		
 		JComboBox comboBox_3 = new JComboBox(day);
-		comboBox_3.setBounds(109, 157, 102, 27);
+		comboBox_3.setBounds(109, 343, 102, 27);
 		contentPane.add(comboBox_3);
 		
 		JComboBox comboBox_4 = new JComboBox(repeat);
-		comboBox_4.setBounds(110, 239, 215, 27);
+		comboBox_4.setBounds(110, 425, 215, 27);
 		contentPane.add(comboBox_4);
 		
 		JLabel lblCreateNewEvent = new JLabel("Create new event");
@@ -122,27 +131,27 @@ public class createEvent extends JFrame {
 		contentPane.add(lblCreateNewEvent);
 		
 		JComboBox comboBox_5 = new JComboBox(time);
-		comboBox_5.setBounds(109, 129, 102, 27);
+		comboBox_5.setBounds(109, 315, 102, 27);
 		contentPane.add(comboBox_5);
 		
 		JComboBox comboBox_6 = new JComboBox(amPm);
-		comboBox_6.setBounds(223, 129, 102, 27);
+		comboBox_6.setBounds(223, 315, 102, 27);
 		contentPane.add(comboBox_6);
 		
 		JTextArea textArea = new JTextArea();
-		textArea.setBounds(109, 350, 342, 107);
+		textArea.setBounds(109, 536, 342, 107);
 		contentPane.add(textArea);
 		
 		JLabel lblNotes = new JLabel("Notes");
-		lblNotes.setBounds(36, 350, 61, 16);
+		lblNotes.setBounds(36, 536, 61, 16);
 		contentPane.add(lblNotes);
 		
 		JTextArea textArea_1 = new JTextArea();
-		textArea_1.setBounds(109, 278, 342, 56);
+		textArea_1.setBounds(109, 464, 342, 56);
 		contentPane.add(textArea_1);
 		
 		JLabel lblLocation = new JLabel("Location");
-		lblLocation.setBounds(36, 278, 61, 16);
+		lblLocation.setBounds(36, 464, 61, 16);
 		contentPane.add(lblLocation);
 		
 		JLabel lblName = new JLabel("Name");
@@ -158,12 +167,12 @@ public class createEvent extends JFrame {
 		contentPane.add(lblCBSCalendarLogo);
 		
 		JLabel lblShare = new JLabel("Invite");
-		lblShare.setBounds(36, 473, 61, 16);
+		lblShare.setBounds(36, 659, 61, 16);
 		contentPane.add(lblShare);
 		
 		JFormattedTextField frmtdtxtfldSearchCbsUsername = new JFormattedTextField();
 		frmtdtxtfldSearchCbsUsername.setText("Enter CBS username");
-		frmtdtxtfldSearchCbsUsername.setBounds(109, 467, 182, 28);
+		frmtdtxtfldSearchCbsUsername.setBounds(109, 653, 182, 28);
 		contentPane.add(frmtdtxtfldSearchCbsUsername);
 		
 		JCheckBox chckbxNewCheckBox = new JCheckBox("Entire DØK 13");
@@ -174,6 +183,24 @@ public class createEvent extends JFrame {
 		textField_1.setBounds(109, 95, 342, 28);
 		contentPane.add(textField_1);
 		textField_1.setColumns(10);
+		
+		JLabel lblDate = new JLabel("Date");
+		lblDate.setBounds(36, 140, 38, 50);
+		contentPane.add(lblDate);
+		
+		JComboBox comboBox_7 = new JComboBox(day);
+		comboBox_7.setBounds(109, 153, 102, 27);
+		contentPane.add(comboBox_7);
+		
+		JComboBox comboBox_8 = new JComboBox(months);
+		comboBox_8.setBounds(223, 153, 102, 27);
+		contentPane.add(comboBox_8);
+		
+		JComboBox comboBox_9 = new JComboBox(years);
+		comboBox_9.setBounds(349, 153, 102, 27);
+		contentPane.add(comboBox_9);
+		
+		
 
 		
 	}
