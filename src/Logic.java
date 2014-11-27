@@ -1,13 +1,61 @@
-import java.util.TimeZone;
 import java.util.Calendar;
-import java.util.Timer;
 public class Logic {
 	
+	static Calendar cal = Calendar.getInstance();
+	
+	public int month = cal.get(Calendar.MONTH);
+	public int day = cal.get(Calendar.DAY_OF_MONTH);
+	public int weekday = (cal.get(Calendar.DAY_OF_WEEK_IN_MONTH));
+	public int year = cal.get(Calendar.YEAR);
+	public static int mon = cal.get(Calendar.MONDAY);
+	
+	
+	
+	public static int getMon() {
+		return mon;
+	}
+
+
+	public void setMon(int mon) {
+		Logic.mon = mon;
+	}
+
+
+	public int getMonth() {
+		return month;
+	}
+
+
+	public void setMonth(int month) {
+		this.month = month;
+	}
+
+
+	public int getWeekday() {
+		return weekday;
+	}
+
+
+	public void setWeekday(int weekday) {
+		this.weekday = weekday;
+	}
+
+
+	public void setDay(int day) {
+		this.day = day;
+	}
+
+
+	public void setYear(int year) {
+		this.year = year;
+	}
+
+
 	public boolean tjekLogonInfo(String username){
 		String usrname = "test";
 		String pswrd = null;
 		
-		if (username == usrname){
+		if (username.equals(usrname)){
 			return true;
 		}else{
 	return true;	
@@ -40,6 +88,13 @@ public class Logic {
 		Calendar cal = Calendar.getInstance();
 		int dayOfMonth = cal.get(Calendar.DAY_OF_MONTH);
 		return dayOfMonth;
+	}
+	
+	public static int getmonthofyearint(){
+		Calendar cal = Calendar.getInstance();
+		int monthofyear = cal.get(Calendar.MONTH);
+		monthofyear ++;
+		return monthofyear;
 	}
 	
 	public static String getmonthofyear(){
@@ -120,7 +175,7 @@ public class Logic {
 			else if (Day == 6)
 				return "Friday";
 			else
-				return "error";
+				return "error displaying day";
 	}
 	
 	

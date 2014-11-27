@@ -27,6 +27,7 @@ import java.util.GregorianCalendar;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import javax.swing.JPasswordField;
+
 import java.awt.event.InputMethodListener;
 import java.awt.event.InputMethodEvent;
 import java.awt.Font;
@@ -35,12 +36,14 @@ public class Calendar extends JFrame {
   String[] years = {"2014","2015", "2016", "2017", "2018", "2019", "2020" };
   String[] viewMode = {"Month view", "Agenda view", "Week view"};
 
-  JComboBox comboBox = new JComboBox(years);
+  @SuppressWarnings("unchecked")
+JComboBox comboBox = new JComboBox(years);
 
   String[] months = { "January", "February", "March", "April", "May", "June", "July", "August",
       "September", "October", "November", "December" };
 
-  JList list = new JList(months);
+  @SuppressWarnings("unchecked")
+JList list = new JList(months);
 
   CalendarModel model = new CalendarModel();
 
@@ -122,7 +125,7 @@ public class Calendar extends JFrame {
     });
     getContentPane().add(btnCreateEvent);
     
-    JLabel lblQuoteOfThe = new JLabel("Quote of the day - You don't have to be great to start, but you have to start to be great");
+    JLabel lblQuoteOfThe = new JLabel("Quote of the day - You don't have to be great to start, but you have to start to be great"); //Get string from server
     lblQuoteOfThe.setBounds(177, 804, 551, 16);
     getContentPane().add(lblQuoteOfThe);
     
