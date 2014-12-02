@@ -18,11 +18,6 @@ import javax.swing.SwingConstants;
 public class weekView extends JFrame {
 
 	private JPanel contentPane;
-
-	/**
-	 * Create the frame.
-	 */
-	
 	int today = Logic.getdayofmonth();
 	int offset =  0;
 	
@@ -164,7 +159,7 @@ public class weekView extends JFrame {
 		button_1.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-			Days.setOffSetPlus(1);
+			Days.setOffSetPlus(7);
 			Monday.setText(Days.getMonDay());
 			lblTuesday.setText(Days.getTueDay());
 			lblWednesday.setText(Days.getWedDay());

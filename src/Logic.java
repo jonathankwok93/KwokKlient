@@ -3,13 +3,16 @@ public class Logic {
 	
 	static Calendar cal = Calendar.getInstance();
 	
-	public int month = cal.get(Calendar.MONTH);
-	public int day = cal.get(Calendar.DAY_OF_MONTH);
-	public int weekday = (cal.get(Calendar.DAY_OF_WEEK_IN_MONTH));
-	public int year = cal.get(Calendar.YEAR);
+	public static int month = cal.get(Calendar.MONTH);
+	public static int day = cal.get(Calendar.DAY_OF_MONTH);
+	public static int weekday = (cal.get(Calendar.DAY_OF_WEEK_IN_MONTH));
+	public static int year = cal.get(Calendar.YEAR);
+	public static int dayofweek = cal.get(Calendar.DAY_OF_WEEK);
 	public static int mon = cal.get(Calendar.MONDAY);
 	
-	
+	public static int getDayOfWeek(){
+		return dayofweek;
+	}
 	
 	public static int getMon() {
 		return mon;
@@ -21,7 +24,7 @@ public class Logic {
 	}
 
 
-	public int getMonth() {
+	public static int getMonth() {
 		return month;
 	}
 
@@ -178,6 +181,65 @@ public class Logic {
 				return "error displaying day";
 	}
 	
+	public static void getTodayEvent(){
+		switch (String.valueOf(getDayOfWeek() + 1)){
+		case "1":
+			getMondayEvent();
+			break;
+		case "2":	
+			getTuesdayEvent();
+			break;
+		case "3":
+			getWednesdayEvent();
+			break;
+		case "4":
+			getThursdayEvent();
+			break;
+		case "5":
+			getFridayEvent();
+			break;
+		case "6":
+			getSaturdayEvent();
+			break;
+		case "7":
+			getSundayEvent();
+			break;
+		}		
+	}
 	
+	public static String getMondayEvent(){
+		return "Event for monday";
+		//Sends a Json request to server
+	}
+	
+	public static String getTuesdayEvent(){
+		return "";
+		//Sends a Json request to server
+	}
+	
+	public static String getWednesdayEvent(){
+		return "";
+		//Sends a Json request to server
+	}
+	
+	public static String getThursdayEvent(){
+		return "";
+		//Sends a Json request to server
+	}
+	
+	public static String getFridayEvent(){
+		return "";
+		//Sends a Json request to server
+	}
+	
+	public static String getSaturdayEvent(){
+		return "";
+		//Sends a Json request to server
+	}
+	
+	public static String getSundayEvent(){
+		return "";
+		//Sends a Json request to server
+	}
 	
 }
