@@ -178,13 +178,21 @@ public class weekView extends JFrame {
 class Days{
 	static int today = Logic.getdayofmonth();
 	static int offset = 0;
-	static int SatDay = today + 7 + offset;
-	static int SunDay = today + 8 + offset;
-	static int MonDay = today + 2 + offset;
-	static int TueDay = today + 3 + offset;
-	static int WedDay = today + 4 + offset;
-	static int ThuDay = today + 5 + offset;
-	static int FriDay = today + 6 + offset;
+	static int SatDay = today + 7 ;
+	static int SunDay = today + 8 ;
+	static int MonDay = today + 2 ;
+	static int TueDay = today + 3 ;
+	static int WedDay = today + 4;
+	static int ThuDay = today + 5;
+	static int FriDay = today + 6; 
+	
+//	static int SatDay = today + 7 + offset;
+//	static int SunDay = today + 8 + offset;
+//	static int MonDay = today + 2 + offset;
+//	static int TueDay = today + 3 + offset;
+//	static int WedDay = today + 4 + offset;
+//	static int ThuDay = today + 5 + offset;
+//	static int FriDay = today + 6 + offset;
 	
 	public int getOffset() {
 		return offset;
@@ -215,35 +223,62 @@ class Days{
 	}
 	
 	public static void setOffSetPlus(int off){
-		MonDay += off;
-		TueDay += off;
-		WedDay += off;
-		ThuDay += off;
-		FriDay += off;
-		SatDay += off;
-		SunDay += off;
+		if(MonDay <= 31){
+			MonDay += off;}
+		else{
+			MonDay = 1;}
+		
+		if(TueDay <= 31){
+			TueDay += off;}
+		else{
+			TueDay = 1;}
+		
+		if(WedDay <= 31){
+			WedDay += off;}
+		else{
+			setWedDay(1);}
+			
+		if(ThuDay <= 31){
+			ThuDay += off;}
+		else{
+			ThuDay = 1;}
+		
+		if(FriDay <= 31){
+			FriDay += off;}
+		else {
+			FriDay = 1;}
+		
+		if(SatDay <= 31){
+			SatDay += off;}
+		else{
+			SatDay = 1;}
+		
+		if(SunDay <= 31){
+			SunDay += off;}
+		else {
+			SunDay = 1;}
 	}
 	
 	public static void setSatDay(int offset) {
-		SatDay += offset;
+		SatDay = offset;
 	}
 	public static String getSunDay() {
 		return String.valueOf(SunDay);
 	}
 	public void setSunDay(int offset) {
-		SunDay += offset;
+		SunDay = offset;
 	}
 	public static String getTueDay() {
 		return String.valueOf(TueDay);
 	}
 	public void setTueDay(int offset) {
-		TueDay += offset;
+		TueDay = offset;
 	}
 	public static  String getWedDay() {
 		return String.valueOf(WedDay);
 	}
-	public void setWedDay(int offset) {
-		WedDay += offset;
+	public static void setWedDay(int offset) {
+		WedDay = offset;
 	}
 	public static String getThuDay() {
 		return String.valueOf(ThuDay);
@@ -255,7 +290,7 @@ class Days{
 		return String.valueOf(FriDay);
 	}
 	public void setFriDay(int offset) {
-		FriDay += offset;
+		FriDay = offset;
 	}
 	public static String getMonDay() {
 		return String.valueOf(MonDay);

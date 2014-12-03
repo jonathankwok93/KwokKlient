@@ -7,7 +7,7 @@ import java.sql.Statement;
 
 public class clientConnection {
 
-	public boolean test()
+	public boolean clientConnection()
 	{
 		Connection conn = null;
 		Statement stmt = null;
@@ -17,9 +17,9 @@ public class clientConnection {
 		
 		try {
 			Class.forName("com.mysql.jdbc.Driver").newInstance();
-			String connectionUrl = "disr-sso.IT-kartellet.dk";
-			String connectionUser = "admin";
-			String connectionPassword = "test";
+			String connectionUrl = "localhost3306";
+			String connectionUser = "test";
+			String connectionPassword = "";
 			conn = DriverManager.getConnection(connectionUrl, connectionUser, connectionPassword);
 			stmt = conn.createStatement();
 			rs = stmt.executeQuery("SELECT * FROM userevents WHERE userID = kakw13ab");

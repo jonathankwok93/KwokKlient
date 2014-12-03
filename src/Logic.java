@@ -9,6 +9,21 @@ public class Logic {
 	public static int year = cal.get(Calendar.YEAR);
 	public static int dayofweek = cal.get(Calendar.DAY_OF_WEEK);
 	public static int mon = cal.get(Calendar.MONDAY);
+	public static String QOTD = null;
+	
+	
+	
+	public static void updateQOTD(){
+		QOTD = "String fro server";
+	}
+	
+	public static String getQOTD(int i){
+		if (i == 1)
+			return QOTD;
+		else if (i > 1)
+			updateQOTD();
+			return QOTD;
+	}
 	
 	public static int getDayOfWeek(){
 		return dayofweek;
@@ -80,11 +95,6 @@ public class Logic {
 	
 	public boolean returnTrue(String test){
 		return true;
-	}
-	
-	public static void timeZone(){
-		//TimeZone tz = new TimeZone();
-		
 	}
 	
 	public static int getdayofmonth(){
