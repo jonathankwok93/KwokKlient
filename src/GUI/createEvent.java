@@ -1,3 +1,4 @@
+package GUI;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.EventQueue;
@@ -20,6 +21,8 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.JSeparator;
 import javax.swing.JFormattedTextField;
+
+import Controller.Controller;
 
 
 public class createEvent extends JFrame {
@@ -58,11 +61,11 @@ public class createEvent extends JFrame {
 				"10:00","10:30","11:00","11:30", "12:00"};
 		String[] amPm = {"AM", "PM"};
 		
-		int nextYear = 1 +  Logic.getYear();
-		int nextnextYear = 2 + Logic.getYear();
-		int nextnextnextYear = 3 + Logic.getYear();
+		int nextYear = 1 +  Controller.getYear();
+		int nextnextYear = 2 + Controller.getYear();
+		int nextnextnextYear = 3 + Controller.getYear();
 		
-		String[] years = {Integer.toString(Logic.getYear()), Integer.toString(nextYear), Integer.toString(nextnextYear), Integer.toString(nextnextnextYear)};
+		String[] years = {Integer.toString(Controller.getYear()), Integer.toString(nextYear), Integer.toString(nextnextYear), Integer.toString(nextnextnextYear)};
 		
 		//String[] day = {"Day", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16",
 		//		"17", "18", "19", "20", "21", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"};
@@ -86,6 +89,13 @@ public class createEvent extends JFrame {
 		contentPane.add(btnCancel);
 		
 		JButton btnCreateEvent = new JButton("Create event");
+		btnCreateEvent.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				Controller.createEvent(4,4,4,4,2014,2014, "SP101", "Note");
+				dispose();
+			}
+		});
 		btnCreateEvent.setBounds(343, 693, 122, 29);
 		contentPane.add(btnCreateEvent);
 		
@@ -165,15 +175,6 @@ public class createEvent extends JFrame {
 		//lblCBSCalendarLogo.setIcon(new ImageIcon(img));
 		lblCBSCalendarLogo.setBounds(192, 17, 282, 66);
 		contentPane.add(lblCBSCalendarLogo);
-		
-		JLabel lblShare = new JLabel("Invite");
-		lblShare.setBounds(36, 659, 61, 16);
-		contentPane.add(lblShare);
-		
-		JFormattedTextField frmtdtxtfldSearchCbsUsername = new JFormattedTextField();
-		frmtdtxtfldSearchCbsUsername.setText("Enter CBS username");
-		frmtdtxtfldSearchCbsUsername.setBounds(109, 653, 182, 28);
-		contentPane.add(frmtdtxtfldSearchCbsUsername);
 		
 		JCheckBox chckbxNewCheckBox = new JCheckBox("Entire DØK 13");
 		chckbxNewCheckBox.setBounds(337, 469, 128, 23);

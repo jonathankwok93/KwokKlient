@@ -1,3 +1,4 @@
+package GUI;
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import java.awt.Font;
@@ -14,11 +15,13 @@ import java.awt.event.MouseEvent;
 
 import javax.swing.SwingConstants;
 
+import Controller.Controller;
+
 
 public class weekView extends JFrame {
 
 	private JPanel contentPane;
-	int today = Logic.getdayofmonth();
+	int today = Controller.getdayofmonth();
 	int offset =  0;
 	
 	public weekView() {
@@ -125,7 +128,7 @@ public class weekView extends JFrame {
 		table.setRowHeight(30);
 		table.setShowGrid(true);
 		
-		JLabel lblItIsCurrently = new JLabel("It is currently week " + Logic.getweekofyear());
+		JLabel lblItIsCurrently = new JLabel("It is currently week " + Controller.getweekofyear());
 		lblItIsCurrently.setBounds(20, 40, 215, 16);
 		contentPane.add(lblItIsCurrently);
 		
@@ -176,7 +179,7 @@ public class weekView extends JFrame {
 }
 
 class Days{
-	static int today = Logic.getdayofmonth();
+	static int today = Controller.getdayofmonth();
 	static int offset = 0;
 	static int SatDay = today + 7 ;
 	static int SunDay = today + 8 ;

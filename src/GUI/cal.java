@@ -1,5 +1,8 @@
+package GUI;
 import javax.swing.AbstractButton;
+
 import java.awt.event.*;
+
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JTable;
@@ -12,6 +15,8 @@ import java.awt.event.MouseEvent;
 
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
+
+import Controller.Controller;
 
 import java.awt.Font;
 
@@ -47,7 +52,7 @@ public class cal extends JFrame {
     });
     getContentPane().add(btnToday);
     
-    offset.setMonth(Logic.getMonth());
+    offset.setMonth(Controller.getMonth());
     
     JButton btnSignout = new JButton("Sign out");
     btnSignout.setBounds(288, 792, 100, 29);
@@ -75,7 +80,7 @@ public class cal extends JFrame {
     comboBox_1.setBounds(117, 7, 100, 27);
     getContentPane().add(comboBox_1);
     
-    JLabel lblNewLabel = new JLabel("It is currently week" + Logic.getweekofyear() + "of 52");
+    JLabel lblNewLabel = new JLabel("It is currently week" + Controller.getweekofyear() + "of 52");
     lblNewLabel.setBounds(152, 826, 206, 16);
     lblNewLabel.setHorizontalAlignment(SwingConstants.LEFT);
     getContentPane().add(lblNewLabel);
@@ -119,7 +124,7 @@ public class cal extends JFrame {
     lblTime.setBounds(26, 107, 144, 53);
     getContentPane().add(lblTime);
     
-    JLabel lblNewLabel_2 = new JLabel(Logic.getDay());
+    JLabel lblNewLabel_2 = new JLabel(Controller.getDay());
     lblNewLabel_2.setFont(new Font("Lucida Grande", Font.PLAIN, 14));
     lblNewLabel_2.setBounds(26, 107, 82, 16);
     getContentPane().add(lblNewLabel_2);
@@ -205,9 +210,9 @@ public class cal extends JFrame {
 
 
 class offset{
-	static int defaultmonth = Logic.getmonthofyearint();
-	static int defaultday = Logic.getdayofmonth();
-	static int defaultyear = Logic.getYear();
+	static int defaultmonth = Controller.getmonthofyearint();
+	static int defaultday = Controller.getdayofmonth();
+	static int defaultyear = Controller.getYear();
 	static int offset = 0;
 	
 	static int month = defaultmonth;
@@ -256,7 +261,7 @@ class offset{
 	}	
 	
 	public void setMonth(){
-		month = Logic.getMonth();
+		month = Controller.getMonth();
 	}
 	
 	public static String getMonth(){
@@ -310,7 +315,7 @@ class offset{
 	}
 	
 	public static int getyear(){
-		return Logic.getYear();
+		return Controller.getYear();
 	}
 	
 	

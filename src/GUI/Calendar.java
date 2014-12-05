@@ -1,3 +1,4 @@
+package GUI;
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.Image;
@@ -27,6 +28,8 @@ import java.util.GregorianCalendar;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import javax.swing.JPasswordField;
+
+import Controller.Controller;
 
 import java.awt.event.InputMethodListener;
 import java.awt.event.InputMethodEvent;
@@ -147,13 +150,13 @@ JComboBox comboBox = new JComboBox(years);
     lblTime.setBounds(26, 50, 144, 53);
     getContentPane().add(lblTime);
     
-    JLabel lblTodayIs = new JLabel(Logic.getmonthofyear() + " " + Logic.getdayofmonth() + " - " + Logic.getYear());
+    JLabel lblTodayIs = new JLabel(Controller.getmonthofyear() + " " + Controller.getdayofmonth() + " - " + Controller.getYear());
     lblTodayIs.setHorizontalAlignment(SwingConstants.TRAILING);
     lblTodayIs.setFont(new Font("Lucida Grande", Font.PLAIN, 16));
     lblTodayIs.setBounds(298, 64, 189, 16);
     getContentPane().add(lblTodayIs);
     
-    JLabel lblNewLabel_2 = new JLabel(Logic.getDay());
+    JLabel lblNewLabel_2 = new JLabel(Controller.getDay());
     lblNewLabel_2.setHorizontalAlignment(SwingConstants.TRAILING);
     lblNewLabel_2.setFont(new Font("Lucida Grande", Font.PLAIN, 14));
     lblNewLabel_2.setBounds(406, 36, 82, 16);

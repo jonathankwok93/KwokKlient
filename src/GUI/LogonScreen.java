@@ -1,3 +1,4 @@
+package GUI;
 import java.awt.*;
 
 import javax.swing.JFrame;
@@ -16,12 +17,11 @@ import java.io.IOException;
 import javax.swing.JRadioButton;
 import javax.swing.SwingConstants;
 
+import Controller.Controller;
+
 
 public class LogonScreen extends JFrame {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTextField textField;
@@ -60,34 +60,19 @@ public class LogonScreen extends JFrame {
 		
 		JButton btnLogOn = new JButton("Sign in");
 		btnLogOn.addMouseListener(new MouseAdapter() {
+			@SuppressWarnings("static-access")
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				//Open CalendarScreen??
 				
-				Logic l = new Logic();
-				
-				String username = textField.getText();
-				@SuppressWarnings("deprecation")
-				String password = passwordField.getText();
-				if(l.tjekLogonInfo(username)){
-					Calendar cal = new Calendar();
-					cal.setVisible(true);
-					
-					dispose();
-				}else{
-				
-					@SuppressWarnings("unused")
-					errorLogin err = new errorLogin();
-					err.setVisible(true);
-					dispose();
-
+				Controller logic = new Controller();
+				if(logic.loginMessage(logic.login(textField.getText(), passwordField.getText()))){
+				dispose();
 				}
-				
-				
-				
 			}
 			
 		});
+		
 		btnLogOn.setBounds(380, 187, 148, 29);
 		contentPane.add(btnLogOn);
 		
