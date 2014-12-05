@@ -1,10 +1,8 @@
 package Controller;
 import java.util.Calendar;
-
-import com.sun.jmx.snmp.Timestamp;
-
 import GUI.cal;
 import GUI.userMessage;
+
 public class Controller {
 
 	static Calendar cal = Calendar.getInstance();
@@ -37,7 +35,9 @@ public class Controller {
 			um.setVisible(true);
 			return true;
 		}else{
-			return false;	
+			userMessage um = new userMessage("The event could not be created");
+			um.setVisible(true);
+			return false;
 		}
 
 	}

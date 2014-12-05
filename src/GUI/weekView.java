@@ -30,6 +30,7 @@ public class weekView extends JFrame {
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
+		setResizable(false);
 		contentPane.setLayout(null);
 		
 		JButton btnExit = new JButton("Exit Week View");
@@ -146,7 +147,7 @@ public class weekView extends JFrame {
 		button.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-			Days.setOffSetMinus(1);
+			Days.setOffSetMinus(7);
 			Monday.setText(Days.getMonDay());
 			lblTuesday.setText(Days.getTueDay());
 			lblWednesday.setText(Days.getWedDay());

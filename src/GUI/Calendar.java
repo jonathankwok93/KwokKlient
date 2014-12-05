@@ -60,6 +60,7 @@ JComboBox comboBox = new JComboBox(years);
   //  comboBox.addItemListener(new ItemListener());
     getContentPane().setLayout(null);
     getContentPane().add(comboBox);
+    setResizable(false);
     
     JButton btnToday = new JButton("Today");
     btnToday.setBounds(370, 6, 100, 29);

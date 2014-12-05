@@ -43,6 +43,7 @@ public class cal extends JFrame {
   // comboBox.addItemListener(new ItemListener());
     getContentPane().setLayout(null);
     getContentPane().add(comboBox);
+    setResizable(false);
     
     JButton btnToday = new JButton("Today");
     btnToday.setBounds(370, 6, 100, 29);
@@ -71,7 +72,8 @@ public class cal extends JFrame {
     btnExit.addMouseListener(new MouseAdapter() {
     @Override
     public void mouseClicked(MouseEvent e) {
-    System.exit(0);
+    	dispose();
+    	System.exit(0);
     }
     });
     getContentPane().add(btnExit);
