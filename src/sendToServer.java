@@ -6,8 +6,7 @@ import java.net.Socket;
 
 public class sendToServer extends Thread {
 
-		
-
+	
 		Socket client = null;
 		static Socket socket;
 		
