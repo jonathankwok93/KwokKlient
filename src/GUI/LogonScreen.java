@@ -115,7 +115,7 @@ public class LogonScreen extends JFrame {
 		});
 		btnExit.setBounds(18, 293, 117, 29);
 		contentPane.add(btnExit);
-//
+
 //		ImageIcon cbsLogo = new ImageIcon(getClass().getResource("/cbsLogo.jpg"));
 //		JLabel lblNewLabel = new JLabel(cbsLogo);
 //		lblNewLabel.setBounds(47, 124, 61, 16);
