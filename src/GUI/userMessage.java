@@ -34,7 +34,7 @@ public class userMessage extends JFrame {
 		lblNewLabel.setBounds(6, 110, 438, 51);
 		contentPane.add(lblNewLabel);
 		
-		JButton btnMessageRecieved = new JButton("Done");
+		JButton btnMessageRecieved = new JButton("Click to dismiss");
 		btnMessageRecieved.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
