@@ -1,6 +1,7 @@
 package Controller;
 import java.util.Calendar;
 
+import Data.TCPClient;
 import GUI.cal;
 import GUI.userMessage;
 
@@ -40,6 +41,14 @@ public class Controller {
 			um.setVisible(true);
 			return false;
 		}
+	}
+	
+	public static String getCBSCalendar() throws Exception{
+		return TCPClient.toServer("getCBSCalendar");
+	}
+	
+	public static String getWeather() throws Exception{
+		return TCPClient.toServer("getClientForecast");
 	}
 
 
@@ -90,17 +99,12 @@ public class Controller {
 		}
 	}
 
-	public static void updateQOTD(){
-		QOTD = "String from server";
-	}
-
-	public static String getQOTD(int i){
-		if (i == 1)
-			return QOTD;
-		else if (i > 1)
-			updateQOTD();
+	public static String getQOTD() throws Exception{
+		QOTD = TCPClient.toServer("getQuote");
 		return QOTD;
 	}
+
+	
 
 	public static int getDayOfWeek(){
 		return dayofweek;

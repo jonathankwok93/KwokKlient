@@ -11,6 +11,7 @@ import java.net.Socket;
 
 import config.Configurations;
 
+
 public class Encrypt {
 
 	public static void encrypt(OutputStream out, Object o) throws IOException{

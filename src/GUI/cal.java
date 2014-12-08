@@ -17,8 +17,11 @@ import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
 import Controller.Controller;
+import Data.TCPClient;
 
 import java.awt.Font;
+
+import javax.swing.JTextArea;
 
 public class cal extends JFrame {
 	
@@ -82,7 +85,7 @@ public class cal extends JFrame {
     comboBox_1.setBounds(117, 7, 100, 27);
     getContentPane().add(comboBox_1);
     
-    JLabel lblNewLabel = new JLabel("It is currently week" + Controller.getweekofyear() + "of 52");
+    JLabel lblNewLabel = new JLabel("It is currently week " + Controller.getweekofyear());
     lblNewLabel.setBounds(152, 826, 206, 16);
     lblNewLabel.setHorizontalAlignment(SwingConstants.LEFT);
     getContentPane().add(lblNewLabel);
@@ -111,10 +114,10 @@ public class cal extends JFrame {
     btnShowWeekView.setBounds(26, 792, 127, 29);
     getContentPane().add(btnShowWeekView);
     
-    agenda = new JTable(data, columnNames);
-    agenda.setBounds(26, 153, 462, 627);
-    getContentPane().add(agenda);
-    agenda.setRowHeight(33);
+//    agenda = new JTable(data, columnNames);
+//    agenda.setBounds(26, 153, 305, 627);
+//    getContentPane().add(agenda);
+//    agenda.setRowHeight(33);
  
     final JLabel lblActicity = new JLabel("Activity");
     lblActicity.setFont(new Font("Lucida Grande", Font.BOLD, 13));
@@ -176,38 +179,28 @@ public class cal extends JFrame {
     });
     button.setBounds(327, 5, 46, 29);
     getContentPane().add(button);
-	    		
-
+    
+    JTextArea textArea = new JTextArea();
+    textArea.setBounds(26, 153, 767, 481);
+    getContentPane().add(textArea);
+    
+    try{
+    	textArea.setText(Controller.getCBSCalendar());
+    	
+    	JTextArea textArea_1 = new JTextArea();
+    	textArea_1.setBounds(26, 656, 767, 124);
+    	textArea_1.setText(Controller.getWeather());
+    	getContentPane().add(textArea_1);
+    }catch(Exception e){
+    	textArea.setText("error revieving cbs calendar");
+    }
+       		
     this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-    setSize(520, 870);
+    setSize(820, 870);
     setVisible(true);
   }
   
   
-  String[] columnNames =  {"Time", "Activity"};
-  Object [][] data = {
-		  	{"06.00", null},
-			{"07.00", null},
-			{"08.00", null},
-			{"09.00", null},
-			{"10.00", null},
-			{"11.00", null},
-			{"12.00", null},
-			{"13.00", null},
-			{"14.00", null},
-			{"15.00", null},
-			{"16.00", null},
-			{"17.00", null},
-			{"18.00", null},
-			{"19.00", null},
-			{"20.00", null},
-			{"21.00", null},
-			{"22.00", null},
-			{"23.00", null},
-			{"24.00", null},
-		
-  };
-  private JTable agenda;
 } 
 
 

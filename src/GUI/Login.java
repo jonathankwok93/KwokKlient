@@ -21,6 +21,8 @@ import java.net.MalformedURLException;
 import java.net.URISyntaxException;
 import java.net.URL;
 
+import javax.swing.JTextArea;
+
 public class Login extends JFrame {
 
 	private JPanel contentPane;
@@ -28,6 +30,7 @@ public class Login extends JFrame {
 	private JPasswordField passwordField;
 	private JLabel lblpassword;
 	private JButton btnRecoverPassword;
+	private JTextArea textArea;
 
 
 	/**
@@ -35,7 +38,7 @@ public class Login extends JFrame {
 	 */
 	public Login() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 600, 400);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -54,24 +57,24 @@ public class Login extends JFrame {
 				
 			}
 		});
-		btnLogIn.setBounds(296, 206, 117, 29);
+		btnLogIn.setBounds(477, 343, 117, 29);
 		contentPane.add(btnLogIn);
 		
 		textField = new JTextField();
-		textField.setBounds(279, 75, 134, 28);
+		textField.setBounds(437, 166, 134, 28);
 		contentPane.add(textField);
 		textField.setColumns(10);
 		
 		passwordField = new JPasswordField();
-		passwordField.setBounds(279, 115, 134, 28);
+		passwordField.setBounds(437, 206, 134, 28);
 		contentPane.add(passwordField);
 		
 		JLabel lblUsername = new JLabel("Username");
-		lblUsername.setBounds(161, 79, 81, 21);
+		lblUsername.setBounds(338, 170, 81, 21);
 		contentPane.add(lblUsername);
 		
 		lblpassword = new JLabel("Password");
-		lblpassword.setBounds(161, 119, 87, 21);
+		lblpassword.setBounds(338, 210, 87, 21);
 		contentPane.add(lblpassword);
 		
 		btnRecoverPassword = new JButton("Recover password");
@@ -92,7 +95,16 @@ public class Login extends JFrame {
 				}
 			}
 		});
-		btnRecoverPassword.setBounds(41, 206, 146, 29);
+		btnRecoverPassword.setBounds(6, 343, 146, 29);
 		contentPane.add(btnRecoverPassword);
+		
+		try {
+			textArea = new JTextArea(Controller.getQOTD());
+			textArea.setLineWrap(true);
+		} catch (Exception e1) {
+			textArea.setText("error getting weather");
+		}
+		textArea.setBounds(6, 47, 588, 81);
+		contentPane.add(textArea);
 	}
 }
