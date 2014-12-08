@@ -1,9 +1,10 @@
 import Controller.Controller;
+import Data.getCalendar;
 
 
 public class test {
 
 	public static void main (String [] args){
-		System.out.println(Controller.getMon());
+		System.out.println(getCalendar.GetCalendar("2"));
 	}
 }

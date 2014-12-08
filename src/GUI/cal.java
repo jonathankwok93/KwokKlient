@@ -60,7 +60,7 @@ public class cal extends JFrame {
     btnSignout.addMouseListener(new MouseAdapter() {
     @Override
     public void mouseClicked(MouseEvent e) {
-    LogonScreen logon = new LogonScreen();
+    Login logon = new Login();
     logon.setVisible(true);
     dispose();
     }

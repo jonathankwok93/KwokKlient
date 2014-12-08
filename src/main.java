@@ -1,11 +1,11 @@
-import GUI.LogonScreen;
+import GUI.Login;
 
 
 public class main {
 
 	
 	public static void main (String [] args){
-		LogonScreen logon = new LogonScreen();
+		Login logon = new Login();
 		logon.setVisible(true);
 	}
 	

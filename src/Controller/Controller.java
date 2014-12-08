@@ -14,7 +14,7 @@ public class Controller {
 	public static int year = cal.get(Calendar.YEAR);
 	public static int dayofweek = cal.get(Calendar.DAY_OF_WEEK);
 	public static int mon = cal.get(Calendar.MONDAY);
-	public static String QOTD = null;
+	public static String QOTD = "Default Quote of the Day";
 
 	public static String testusername = "test";
 	public static String testpassword = "123";
@@ -40,25 +40,22 @@ public class Controller {
 			um.setVisible(true);
 			return false;
 		}
-
 	}
+
 
 	public static int login (String username, String password){
-
 		if(username.equals(testusername) && password.equals(testpassword)){
 			return 0;
-		}else if(username.equals(testusername) ){
+		}else if(username.equals(testpassword)){
 			return 3;
+		}else if(username.equals("")){
+			return 6;
 		}else{
-			return 5;
+			return 1;
+			
 		}
-
-		//if(username.equals("admin"))
-		//return 0; // if email does not exist
-		//return 2; // if user is inactive
-		//return 3; // if password dows not match
-		//return 4; // if usser is admin 
 	}
+
 
 	public static boolean loginMessage(int i){
 		if (i == 0){
@@ -66,8 +63,8 @@ public class Controller {
 			cal.setVisible(true);
 			return true;
 		}
-		if(i==1){
-			userMessage um = new userMessage("The email does not exist");
+		else if(i==1){
+			userMessage um = new userMessage("The user does not exist");
 			um.setVisible(true);
 			return false;
 		}else if(i == 2){
@@ -80,6 +77,10 @@ public class Controller {
 			return false;
 		}else if(i == 4){
 			userMessage um = new userMessage("This user is a administrator, please log in from the server");
+			um.setVisible(true);
+			return false;
+		}else if(i == 6){
+			userMessage um = new userMessage("Please enter a username to continue");
 			um.setVisible(true);
 			return false;
 		}else{
@@ -189,32 +190,62 @@ public class Controller {
 		int monthofyear = cal.get(Calendar.MONTH);
 		monthofyear++;
 
-		if (monthofyear == 1)
+		switch (monthofyear){
+		case 0:
 			return "January";
-		else if (monthofyear == 2)
+		case 1:
 			return "February";
-		else if (monthofyear == 3)
+		case 2:
 			return "March";
-		else if (monthofyear == 4)
+		case 3:
 			return "April";
-		else if (monthofyear == 5)
-			return "May";
-		else if (monthofyear == 6)
+		case 4:
+			return "Maj";
+		case 5:
 			return "June";
-		else if (monthofyear == 7)
+		case 6:
 			return "July";
-		else if (monthofyear == 8)
+		case 7:
 			return "August";
-		else if (monthofyear == 9)
+		case 8:
 			return "September";
-		else if (monthofyear == 10)
+		case 9:
 			return "October";
-		else if (monthofyear == 11)
+		case 10:
 			return "November";
-		else if (monthofyear == 12)
+		case 11:
 			return "December";
-		else
-			return "error";
+		default:
+			return String.valueOf(monthofyear--);
+		}
+
+
+		//		if (monthofyear == 0)
+		//			return "January";
+		//		else if (monthofyear == 1)
+		//			return "February";
+		//		else if (monthofyear == 2)
+		//			return "March";
+		//		else if (monthofyear == 3)
+		//			return "April";
+		//		else if (monthofyear == 4)
+		//			return "May";
+		//		else if (monthofyear == 5)
+		//			return "June";
+		//		else if (monthofyear == 6)
+		//			return "July";
+		//		else if (monthofyear == 7)
+		//			return "August";
+		//		else if (monthofyear == 8)
+		//			return "September";
+		//		else if (monthofyear == 9)
+		//			return "October";
+		//		else if (monthofyear == 10)
+		//			return "November";
+		//		else if (monthofyear == 11)
+		//			return "December";
+		//		else
+		//			return "error recieving month";
 
 	}
 
@@ -293,7 +324,7 @@ public class Controller {
 			um.setVisible(true);
 		}		
 	}
-	
+
 	static int today = Controller.getdayofmonth();
 	static int offset = 0;
 	static int SatDay = today + 7 ;
@@ -303,15 +334,15 @@ public class Controller {
 	static int WedDay = today + 4;
 	static int ThuDay = today + 5;
 	static int FriDay = today + 6; 
-	
-//	static int SatDay = today + 7 + offset;
-//	static int SunDay = today + 8 + offset;
-//	static int MonDay = today + 2 + offset;
-//	static int TueDay = today + 3 + offset;
-//	static int WedDay = today + 4 + offset;
-//	static int ThuDay = today + 5 + offset;
-//	static int FriDay = today + 6 + offset;
-	
+
+	//	static int SatDay = today + 7 + offset;
+	//	static int SunDay = today + 8 + offset;
+	//	static int MonDay = today + 2 + offset;
+	//	static int TueDay = today + 3 + offset;
+	//	static int WedDay = today + 4 + offset;
+	//	static int ThuDay = today + 5 + offset;
+	//	static int FriDay = today + 6 + offset;
+
 	public int getOffset() {
 		return offset;
 	}
@@ -324,12 +355,12 @@ public class Controller {
 		SatDay += off;
 		SunDay += off;			
 	}
-	
+
 
 	public static String getSatDay() {
 		return String.valueOf(SatDay);
 	}
-	
+
 	public static void setOffSetMinus(int off){
 		MonDay -= off;
 		TueDay -= off;
@@ -339,44 +370,44 @@ public class Controller {
 		SatDay -= off;
 		SunDay -= off;
 	}
-	
+
 	public static void setOffSetPlus(int off){
 		if(MonDay <= 31){
 			MonDay += off;}
 		else{
 			MonDay = 1;}
-		
+
 		if(TueDay <= 31){
 			TueDay += off;}
 		else{
 			TueDay = 1;}
-		
+
 		if(WedDay <= 31){
 			WedDay += off;}
 		else{
 			setWedDay(1);}
-			
+
 		if(ThuDay <= 31){
 			ThuDay += off;}
 		else{
 			ThuDay = 1;}
-		
+
 		if(FriDay <= 31){
 			FriDay += off;}
 		else {
 			FriDay = 1;}
-		
+
 		if(SatDay <= 31){
 			SatDay += off;}
 		else{
 			SatDay = 1;}
-		
+
 		if(SunDay <= 31){
 			SunDay += off;}
 		else {
 			SunDay = 1;}
 	}
-	
+
 	public static void setSatDay(int offset) {
 		SatDay = offset;
 	}
@@ -412,7 +443,7 @@ public class Controller {
 	}
 	public static String getMonDay() {
 		return String.valueOf(MonDay);
-		
+
 	}
 
 	public static String getMondayEvent(){
